@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="H2OFIX - Bengaluru's trusted water treatment solutions. Whole house water softeners, RO systems, heat pumps, solar water heaters. Free water testing & installation.">
+    <meta name="keywords" content="water softener Bengaluru, RO system Bangalore, water treatment, heat pump, solar water heater, water purifier">
+    <title>H2OFIX - Water Solutions, Heat Pumps & Solar Water Heaters | Bengaluru</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #050E1A;
+            --bg-card: #0D1F35;
+            --primary: #F59E0B;
+            --accent: #0EA5E9;
+            --whatsapp: #25D366;
+            --text-primary: #FFFFFF;
+            --text-secondary: #94A3B8;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(5, 14, 26, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-contact {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--primary);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-location {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Buttons */
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: var(--bg-primary);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--accent);
+        }
+        
+        .btn-outline:hover {
+            background: var(--accent);
+        }
+        
+        /* Services Grid */
+        .services {
+            padding: 4rem 2rem;
+            background: var(--bg-card);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Trust Badges */
+        .trust-section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .trust-item {
+            padding: 1.5rem;
+        }
+        
+        .trust-item h4 {
+            color: var(--accent);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .trust-item p {
+            color: var(--text-secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bg-card);
+            padding: 3rem 2rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            line-height: 2;
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-secondary);
+        }
+        
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--whatsapp);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                margin-top: 60px;
+                padding: 2rem 1rem;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            nav {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">H2OFIX</div>
+            <div class="nav-contact">
+                <a href="tel:+919945429988" style="color: var(--text-primary); text-decoration: none;">📞 99454 29988</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-location">
+            📍 Serving Bengaluru & Surrounding Areas
+        </div>
+        
+        <h1>
+            Water Solutions, Heat Pumps,<br>
+            <span>Pressure Pumps & Solar Water Heaters</span><br>
+            in Bengaluru
+        </h1>
+        
+        <p class="hero-subtitle">
+            "We Don't Sell — We Solve"<br>
+            Free on-site water testing • Authorized dealer for 13+ premium brands • Installation & AMC
+        </p>
+        
+        <div class="cta-group">
+            <a href="https://wa.me/919945429988?text=Hi%20H2OFIX,%20I%20need%20a%20free%20water%20testing%20and%20quote" 
+               class="btn btn-whatsapp" 
+               target="_blank">
+                💬 Get Quote on WhatsApp
+            </a>
+            <a href="tel:+919945429988" class="btn btn-primary">
+                📞 Call Now
+            </a>
+            <a href="products.html" class="btn btn-outline">
+                 View Products
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Complete Water & Energy Solutions</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💧</div>
+                    <h3>Water Softeners</h3>
+                    <p>Whole-house hard water solutions. Protect your appliances and skin. Free sizing consultation.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🚰</div>
+                    <h3>RO Systems</h3>
+                    <p>Pure drinking water for your family. Top brands: Kent, AO Smith, 3M, Eureka Forbes.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">️</div>
+                    <h3>Heat Pumps</h3>
+                    <p>Save 70% on water heating costs. Eco-friendly & efficient. Perfect for homes & communities.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">☀️</div>
+                    <h3>Solar Water Heaters</h3>
+                    <p>Cut electricity bills with solar thermal solutions. Government-approved installations.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Pressure Pumps</h3>
+                    <p>Consistent water pressure throughout your home. Automatic & manual options.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🌧️</div>
+                    <h3>Rainwater Harvesting</h3>
+                    <p>Sustainable water conservation systems. Compliance with Bengaluru regulations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="container">
+            <h2 class="section-title">Why Bengaluru Trusts H2OFIX</h2>
+            
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <h4>13+</h4>
+                    <p>Premium Brands</p>
+                </div>
+                <div class="trust-item">
+                    <h4>500+</h4>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="trust-item">
+                    <h4>Free</h4>
+                    <p>Water Testing</p>
+                </div>
+                <div class="trust-item">
+                    <h4>24/7</h4>
+                    <p>Support & AMC</p>
+                </div>
+            </div>
+            
+            <div class="cta-group" style="margin-top: 3rem;">
+                <a href="https://wa.me/919945429988" class="btn btn-whatsapp">
+                    💬 Chat on WhatsApp
+                </a>
+                <a href="tel:+919945429988" class="btn btn-primary">
+                     Call 99454 29988
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>H2OFIX</h4>
+                <p>We Don't Sell — We Solve</p>
+                <p style="margin-top: 1rem;">
+                    #34 Esther Green Layout, Kada Agrahara,<br>
+                    Bidarahalli Hobli, Bangalore 560077
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <p><a href="products.html">View Products</a></p>
+                <p><a href="EMI.html">Easy EMI Options</a></p>
+                <p><a href="https://wa.me/919945429988">WhatsApp Us</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>📧 <a href="mailto:care@h2ofix.in">care@h2ofix.in</a></p>
+                <p> <a href="tel:+919945429988">+91 99454 29988</a></p>
+                <p> Mon - Sat: 9:00 AM - 7:00 PM</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Brands We Deal</h4>
+                <p>3M, AO Smith, Kent, Eureka Forbes,<br>
+                Aquaguard, Pureit, Culligan,<br>
+                Kinetico & 5+ more</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 H2OFIX. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919945429988?text=Hi%20H2OFIX,%20I%20need%20a%20free%20water%20testing%20and%20quote" 
+       class="whatsapp-float" 
+       target="_blank"
+       title="Chat on WhatsApp">
+        💬
+    </a>
+
+</body>
+</html>
