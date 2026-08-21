@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Easy EMI options for water solutions in Bengaluru. Calculate your monthly payments. Bajaj Finserv, HDFC, ICICI, SBI approved.">
+    <title>Easy EMI Plans - H2OFIX Bengaluru | 0% Interest Options</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #050E1A;
+            --bg-card: #0D1F35;
+            --primary: #F59E0B;
+            --accent: #0EA5E9;
+            --whatsapp: #25D366;
+            --text-primary: #FFFFFF;
+            --text-secondary: #94A3B8;
+            --success: #10B981;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(5, 14, 26, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 3rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-primary) 100%);
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+        }
+        
+        .hero h1 span {
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Calculator Section */
+        .calculator-section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .calculator-card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .calculator-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .range-slider {
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+        
+        .range-value {
+            text-align: right;
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+        
+        .calculate-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: var(--bg-primary);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+        
+        /* Results */
+        .results {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            border: 2px solid var(--success);
+        }
+        
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .result-row:last-child {
+            border-bottom: none;
+        }
+        
+        .result-label {
+            color: var(--text-secondary);
+        }
+        
+        .result-value {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .emi-amount {
+            font-size: 2.5rem;
+            color: var(--success);
+            text-align: center;
+            margin: 1.5rem 0;
+            font-weight: 700;
+        }
+        
+        /* Partners */
+        .partners-section {
+            padding: 4rem 0;
+            background: var(--bg-card);
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .partner-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .partner-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .partner-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: var(--bg-primary);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--accent);
+        }
+        
+        .btn-outline:hover {
+            background: var(--accent);
+        }
+        
+        /* Features */
+        .features {
+            padding: 4rem 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-card p {
+            color: var(--text-secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bg-card);
+            padding: 3rem 2rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            line-height: 2;
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-secondary);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                margin-top: 60px;
+                padding: 2rem 1rem;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">H2OFIX</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="emi.html" style="color: var(--primary);">EMI Options</a>
+                <a href="tel:+919945429988">📞 99454 29988</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="badge">✓ Instant Approval Available</div>
+        <h1>
+            Easy EMI Plans for Your<br>
+            <span>Water & Energy Solutions</span>
+        </h1>
+        <p>
+            Get your dream water treatment system with affordable monthly payments.<br>
+            0% interest options • No hidden charges • Quick approval
+        </p>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+        <div class="container">
+            <h2 class="section-title">Calculate Your EMI</h2>
+            
+            <div class="calculator-grid">
+                <!-- Calculator Input -->
+                <div class="calculator-card">
+                    <h3> EMI Calculator</h3>
+                    
+                    <div class="form-group">
+                        <label>Product Cost (₹)</label>
+                        <input type="number" id="productCost" placeholder="Enter amount" value="50000">
+                        <input type="range" class="range-slider" id="costRange" min="10000" max="500000" step="5000" value="50000">
+                        <div class="range-value">₹<span id="costValue">50,000</span></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Down Payment (₹)</label>
+                        <input type="number" id="downPayment" placeholder="Enter amount" value="10000">
+                        <input type="range" class="range-slider" id="downRange" min="0" max="250000" step="5000" value="10000">
+                        <div class="range-value">₹<span id="downValue">10,000</span></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Loan Tenure (Months)</label>
+                        <select id="loanTenure">
+                            <option value="6">6 Months</option>
+                            <option value="12" selected>12 Months</option>
+                            <option value="18">18 Months</option>
+                            <option value="24">24 Months</option>
+                            <option value="36">36 Months</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Interest Rate (%)</label>
+                        <select id="interestRate">
+                            <option value="0">0% (No Cost EMI)</option>
+                            <option value="10">10% per annum</option>
+                            <option value="12">12% per annum</option>
+                            <option value="14">14% per annum</option>
+                        </select>
+                    </div>
+                    
+                    <button class="calculate-btn" onclick="calculateEMI()">Calculate EMI</button>
+                </div>
+                
+                <!-- Results -->
+                <div class="calculator-card">
+                    <h3> Your EMI Details</h3>
+                    
+                    <div id="emiResults" class="results" style="display: none;">
+                        <div class="result-row">
+                            <span class="result-label">Product Cost</span>
+                            <span class="result-value" id="resultCost">₹50,000</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">Down Payment</span>
+                            <span class="result-value" id="resultDown">₹10,000</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">Loan Amount</span>
+                            <span class="result-value" id="resultLoan">₹40,000</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">Interest Rate</span>
+                            <span class="result-value" id="resultInterest">0%</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">Tenure</span>
+                            <span class="result-value" id="resultTenure">12 months</span>
+                        </div>
+                        
+                        <div class="emi-amount">
+                            ₹<span id="emiAmount">3,333</span><span style="font-size: 1rem; color: var(--text-secondary);">/month</span>
+                        </div>
+                        
+                        <div class="result-row">
+                            <span class="result-label">Total Interest</span>
+                            <span class="result-value" id="resultTotalInterest">₹0</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">Total Payable</span>
+                            <span class="result-value" id="resultTotal">₹40,000</span>
+                        </div>
+                    </div>
+                    
+                    <div id="emiPlaceholder" style="text-align: center; padding: 3rem; color: var(--text-secondary);">
+                        <p>Fill in the details and click Calculate to see your EMI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="container">
+            <h2 class="section-title">Our EMI Partners</h2>
+            
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <h4>Bajaj Finserv</h4>
+                    <p>0% interest EMI<br>Instant approval<br>Up to ₹5 lakh</p>
+                </div>
+                <div class="partner-card">
+                    <h4>HDFC Bank</h4>
+                    <p>Flexible tenure<br>Low interest rates<br>Quick processing</p>
+                </div>
+                <div class="partner-card">
+                    <h4>ICICI Bank</h4>
+                    <p>No processing fee<br>Minimal documentation<br>Same-day approval</p>
+                </div>
+                <div class="partner-card">
+                    <h4>SBI Cards</h4>
+                    <p>Easy conversion<br>Special offers<br>Trusted partner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose EMI with H2OFIX?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h4>Quick Approval</h4>
+                    <p>Get approval within 24 hours with minimal documentation. Start your installation immediately.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h4>0% Interest Options</h4>
+                    <p>Avail no-cost EMI plans on select products. Pay the same price, just spread over months.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h4>Minimal Documentation</h4>
+                    <p>Just ID proof, address proof, and income proof. We handle the rest of the paperwork.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h4>Flexible Tenure</h4>
+                    <p>Choose from 6 to 36 months. Pick a plan that fits your monthly budget comfortably.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="section-title">Ready to Get Started?</h2>
+            <p style="color: var(--text-secondary); font-size: 1.2rem; max-width
