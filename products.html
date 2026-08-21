@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>All 41 Products | H2OFIX Bengaluru</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050E1A;--cta:#F59E0B;--acc:#0EA5E9;--card:#0D1F35;--wa:#25D366;--mut:#94A3B8;--line:rgba(255,255,255,.08)}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,sans-serif;background:var(--bg);color:#fff;line-height:1.6}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif}a{text-decoration:none;color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:0;background:rgba(5,14,26,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:9}
+.hd{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+.logo{font-family:'Space Grotesk';font-weight:700;font-size:1.4rem;color:var(--cta)}
+.nav-links{display:flex;gap:18px}.nav-links a{color:#fff;font-size:.85rem}
+.btn{display:inline-block;padding:10px 20px;border-radius:999px;font-weight:700;font-size:.85rem;color:#fff}
+.b-wa{background:var(--wa)}
+section{padding:40px 0}
+h1{font-size:2.2rem;margin-bottom:10px}h1 span{color:var(--cta)}
+.sub{color:var(--mut);margin-bottom:24px}
+.controls{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+input,select{background:#050E1A;border:1px solid var(--line);color:#fff;padding:10px 14px;border-radius:8px;font-family:inherit;flex:1;min-width:150px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;transition:.2s}
+.card:hover{border-color:var(--cta)}
+.tag{display:inline-block;background:rgba(14,165,233,.12);color:var(--acc);border-radius:6px;padding:2px 8px;font-size:.7rem;font-weight:600;margin-bottom:8px}
+.card h3{font-size:1rem;margin-bottom:6px}
+.card p{font-size:.85rem;color:var(--mut)}
+.price{color:var(--cta);font-weight:700;margin:8px 0}
+.emi{color:var(--wa);font-size:.75rem;font-weight:600}
+footer{background:var(--card);padding:30px 0;text-align:center;font-size:.85rem;color:var(--mut);margin-top:40px}
+</style></head><body>
+<header><div class="wrap hd">
+<a class="logo" href="index.html">💧 H2OFIX</a>
+<div class="nav-links"><a href="index.html">Home</a><a href="emi.html">EMI</a></div>
+</div></header>
+
+<section><div class="wrap">
+<h1>41 Solutions. <span>Zero Guesswork.</span></h1>
+<p class="sub">Browse our complete catalog of water treatment systems. All available with free site assessment.</p>
+<div class="controls">
+<input type="text" id="search" placeholder="Search product or brand..." oninput="filterProducts()">
+<select id="cat" onchange="filterProducts()">
+<option value="all">All Categories</option>
+<option value="Drinking Water">Drinking Water</option>
+<option value="Hard Water">Hard Water</option>
+<option value="Hot Water">Hot Water</option>
+<option value="Solar">Solar</option>
+<option value="Community">Community</option>
+</select>
+</div>
+<div class="grid" id="grid"></div>
+</div></section>
+
+<footer><div class="wrap"><p><b style="color:var(--cta)">H2OFIX</b> — We Don't Sell — We Solve</p><p>care@h2ofix.in | +91 9945429988</p><p>© 2025 H2OFIX. All rights reserved.</p></div></footer>
+<script src="app.js"></script>
+<script>
+// Initialize products page
+if(document.getElementById('grid')) { renderProducts(PRODUCTS); }
+function filterProducts() {
+    const q = document.getElementById('search').value.toLowerCase();
+    const c = document.getElementById('cat').value;
+    const filtered = PRODUCTS.filter(p => 
+        (c === 'all' || p[2] === c) && 
+        (p[0]+p[1]).toLowerCase().includes(q)
+    );
+    renderProducts(filtered);
+}
+</script></body></html>
