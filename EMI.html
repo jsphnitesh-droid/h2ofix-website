@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Easy EMI Pilot | H2OFIX Bengaluru</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050E1A;--cta:#F59E0B;--acc:#0EA5E9;--card:#0D1F35;--wa:#25D366;--mut:#94A3B8;--line:rgba(255,255,255,.08)}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,sans-serif;background:var(--bg);color:#fff;line-height:1.6}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.15}a{text-decoration:none}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:0;background:rgba(5,14,26,.95);border-bottom:1px solid var(--line);z-index:9}
+.hd{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+.logo{font-family:'Space Grotesk';font-weight:700;font-size:1.4rem;color:var(--cta)}
+.banner{background:var(--cta);color:#05101E;text-align:center;padding:10px;font-weight:700;font-size:.85rem}
+.btn{display:inline-block;padding:13px 24px;border-radius:999px;font-weight:700;border:none;cursor:pointer;font-size:.95rem;color:#fff;width:100%}
+.b-cta{background:var(--cta);color:#05101E}
+.pill{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:.68rem;letter-spacing:.26em;color:var(--mut);text-transform:uppercase}.pill i{width:8px;height:8px;background:var(--cta);border-radius:50%}
+section{padding:50px 0}h1{font-size:clamp(2rem,6vw,3rem);margin:18px 0}h1 em{color:var(--cta);font-style:normal}
+.sub{color:var(--mut);margin-bottom:24px}
+.grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center}
+.card h3{font-size:1rem;color:var(--acc)}.card p{font-size:.8rem;color:var(--mut);margin-top:4px}
+input,select{width:100%;background:#050E1A;border:1px solid var(--line);color:#fff;padding:12px;border-radius:10px;font-family:inherit;margin-bottom:10px}
+input[type=range]{padding:0;accent-color:var(--cta)}
+.rr{margin:14px 0}.rr label{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:6px}.rr b{color:var(--cta)}
+.res{background:var(--card);border:1px solid var(--cta);border-radius:14px;padding:24px;text-align:center;margin-top:14px}
+.res .big{font-family:'Space Grotesk';font-size:2.2rem;color:var(--cta)}
+.fine{color:var(--mut);font-size:.7rem;margin-top:10px}
+footer{background:var(--card);padding:36px 0;text-align:center;font-size:.85rem;color:var(--mut);margin-top:40px}
+</style></head><body>
+<div class="banner">🧪 EMI PILOT PHASE — Easy EMI launching soon. Join the waitlist below.</div>
+<header><div class="wrap hd"><a class="logo" href="index.html">💧 H2OFIX</a><a href="index.html" style="color:var(--acc);font-size:.85rem">← Back to Home</a></div></header>
+
+<section><div class="wrap">
+<span class="pill"><i></i>Easy EMI · Clean water today, pay monthly</span>
+<h1>Your health shouldn't wait for your <em>savings.</em></h1>
+<p class="sub">Every H2OFIX product is available on instalments through Bajaj Finserv and leading bank cards. Approval in minutes, same-week installation.</p>
+
+<div class="grid4">
+<div class="card"><h3>Bajaj Finserv</h3><p>No-Cost EMI*</p></div>
+<div class="card"><h3>HDFC Bank</h3><p>Card EMI</p></div>
+<div class="card"><h3>ICICI Bank</h3><p>Card EMI</p></div>
+<div class="card"><h3>SBI / Axis</h3><p>Card EMI</p></div>
+</div>
+
+<div class="card" style="text-align:left">
+<div class="rr"><label>Product price <b id="v1">₹25,000</b></label><input type="range" id="p" min="3000" max="150000" step="500" value="25000"></div>
+<div class="rr"><label>Tenure <b id="v2">12 months</b></label><input type="range" id="t" min="3" max="24" value="12"></div>
+<label style="font-size:.88rem">Plan</label>
+<select id="rate"><option value="0">No-Cost EMI (Bajaj Finserv)*</option><option value="12">Card EMI 12% p.a.</option><option value="15">Card EMI 15% p.a.</option></select>
+</div>
+
+<div class="res"><div style="color:var(--mut);font-size:.8rem">Your estimated EMI</div><div class="big" id="r-emi">—</div><div style="color:var(--mut);font-size:.8rem;margin-top:4px" id="r-tot"></div><div class="fine">*Pilot phase — subject to partner approval. EMI estimates indicative.</div></div>
+</div></section>
+
+<section><div class="wrap"><div class="card" style="max-width:560px;margin:0 auto;text-align:left">
+<h2 style="font-family:'Space Grotesk';margin-bottom:14px">Join the EMI pilot waitlist</h2>
+<form onsubmit="return lead(event)">
+<input name="name" placeholder="Your name" required><input name="phone" type="tel" placeholder="Mobile number" required pattern="[0-9]{10}">
+<input name="area" placeholder="Area in Bengaluru"><input type="hidden" name="service" value="EMI Pilot Waitlist">
+<button class="btn b-cta" type="submit">Join Pilot Waitlist →</button></form>
+</div></div></section>
+
+<footer><div class="wrap"><p><b style="color:var(--cta)">H2OFIX</b> — We Don't Sell — We Solve</p><p>care@h2ofix.in | +91 9945429988</p><p>© 2025 H2OFIX. All rights reserved.</p></div></footer>
+
+<script>
+const WEBHOOK_URL = ""; // Paste Google Apps Script URL here later
+function inr(n){return "₹"+Math.round(n).toLocaleString("en-IN")}
+function calc(){const p=+pEl.value,t=+tEl.value,r=+rateEl.value/1200;
+v1.textContent=inr(p);v2.textContent=t+" months";
+const m=r===0?p/t:(p*r*Math.pow(1+r,t))/(Math.pow(1+r,t)-1);
+r_emi.textContent=inr(m)+" / month";r_tot.textContent="Total payable: "+inr(m*t)}
+function lead(e){e.preventDefault();const f=e.target;const d={name:f.name.value,phone:f.phone.value,area:f.area.value,service:f.service.value};
+if(WEBHOOK_URL){fetch(WEBHOOK_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(d)});}
+window.open('https://wa.me/919945429988?text='+encodeURIComponent('H2OFIX EMI Waitlist\nName: '+d.name+'\nPhone: '+d.phone+'\nArea: '+d.area));
+f.reset();alert('✅ You are on the EMI pilot waitlist!');return false}
+const pEl=document.getElementById('p'),tEl=document.getElementById('t'),rateEl=document.getElementById('rate');
+[pEl,tEl,rateEl].forEach(el=>el.addEventListener('input',calc));calc();
+</script></body></html>
